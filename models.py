@@ -7,9 +7,9 @@ db = SQLAlchemy()
 
 Restaurant_pizzas = db.Table(
     "Restaurant_pizzas",
-    db.Column("Restaurant_id", db.ForeignKey("Restaurants.id"), primary_key=True),
+    db.Column("Restaurant_id", db.ForeignKey("Restaurant.id"), primary_key=True),
     db.Column("Pizza_id", db.ForeignKey("Pizza.id"), primary_key=True),
-    db.Column("Price", db.Interger),
+    db.Column("Price", db.String),
     db.Column("created_at", db.DateTime, server_default=db.func.now()),
     db.Column("updated_at", db.DateTime, onupdate=db.func.now())
 )
@@ -30,7 +30,7 @@ class Restaurant(db.Model, SerializerMixin):
     
 
 class Pizza(db.Model, SerializerMixin):
-    __tablename__ = "pizza"
+    __tablename__ = "Pizza"
 
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String)
