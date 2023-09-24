@@ -12,7 +12,7 @@ with app.app_context():
 
     Restaurants = []
     for i in range(50):
-        hero = Restaurant(
+        Restaurant = Restaurant(
           name= fake.name(),
           super_name = fake.first_name(),  
         )
@@ -33,7 +33,7 @@ with app.app_context():
     for _ in range(50):
         Restaurant_id = randint(1, 50)
         Pizza_id = randint(1, 50)
-        strength = rc(price)
+        price = rc(price)
 
         if (Restaurant_id, Pizza_id, price) in combinations:
             continue
