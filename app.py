@@ -33,7 +33,7 @@ def Restaurants_by_id(id):
 # get Pizza
 @app.route("/Pizza")
 def Pizza():
-    powers = [power.to_dict() for power in Pizza.query.all()]
+    Pizza = [Pizza.to_dict() for Pizza in Pizza.query.all()]
     return make_response(jsonify({"Pizza": Pizza}), 200)   
 
 # get Pizza by id
@@ -41,7 +41,7 @@ def Pizza():
 def Pizza_by_id(id):
     Pizza = Pizza.query.filter_by(id=id).first()
     if not Pizza:
-        return make_response(jsonify({"error": "Power not found"}), 404)
+        return make_response(jsonify({"error": "Pizza not found"}), 404)
     else:
         if request.method == "GET":
             return make_response(jsonify(Pizza.to_dict()), 200)
