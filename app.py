@@ -80,7 +80,7 @@ def create_Restaurant_pizzas():
             db.session.commit()
             
 
-            updated_hero = Restaurant.query.filter_by(id=Restaurant_id).first()
+            updated_Restaurant = Restaurant.query.filter_by(id=Restaurant_id).first()
             response_data = {
                 "id": Pizza.id,
                 "name": Pizza.name,
