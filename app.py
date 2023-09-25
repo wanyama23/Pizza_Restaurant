@@ -63,7 +63,7 @@ def create_Restaurant_pizzas():
         
         if request.method == "POST":
         
-            if request.form.get("price") not in ["High", "Low", "Average"]:
+            if request.form.get("price") not in ["15", "23", "30"]:
                 return make_response(jsonify({"errors": ["validation errors"]}),400)
             
             

@@ -29,7 +29,7 @@ with app.app_context():
     db.session.add_all(Pizza)
 
     combinations = set()
-    price = ["High", "Low", "Average"]
+    price = ["15", "23", "30"]
     for _ in range(50):
         Restaurant_id = randint(1, 50)
         Pizza_id = randint(1, 50)
