@@ -1,7 +1,8 @@
 from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
+from flask_restful import Api, Resource
 
-from models import db, Restaurant, Pizza, Restaurant_pizzas
+from models import db, Restaurant, Pizza, RestaurantPizzas
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -71,12 +72,12 @@ def create_Restaurant_pizzas():
             Pizza_id = request.form.get("Pizza_id")
             Restaurant_id =  request.form.get("Restaurant_id")
 
-            new_Restaurant_pizzas = Restaurant_pizzas.insert().values(
+            new_Restaurant_pizzas = RestaurantPizzas.insert().values(
                 price = price ,
                 Pizza_id= Pizza_id,
                 Restaurant_id = Restaurant_id,
             )
-            db.session.execute(Restaurant_pizzas)
+            db.session.execute(RestaurantPizzas)
             db.session.commit()
             
 
