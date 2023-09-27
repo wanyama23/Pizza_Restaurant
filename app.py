@@ -12,6 +12,7 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+
 @app.route('/')
 def home():
     return make_response(jsonify({"msg": "Welcome to Pizzas api"}), 200)
@@ -32,7 +33,7 @@ def Restaurants_by_id(id):
         return make_response(jsonify(Restaurant.to_dict()), 200)
 
 # get Pizza
-@app.route("/Pizza")
+@app.route("/Pizzas")
 def Pizza():
     Pizza = [Pizza.to_dict() for Pizza in Pizza.query.all()]
     return make_response(jsonify({"Pizza": Pizza}), 200)   

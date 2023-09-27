@@ -28,18 +28,22 @@ with app.app_context():
         pizzas.append(pizza)
     db.session.add_all(pizzas)
 
-    combinations = set()
-    price = ["15", "23", "30"]
-    for _ in range(50):
-        restaurants_id = randint(1, 50)
-        Pizza_id = randint(1, 50)
-        price = rc(price)
+    
 
-        if (restaurants_id, Pizza_id, price) in combinations:
-            continue
-        combinations.add((restaurants_id, Pizza_id, price))
-        RestaurantPizzas_data = {"restaurants_id": restaurants_id, "Pizza_id": Pizza_id, "price": price}
-        statement = db.insert(RestaurantPizzas).values(RestaurantPizzas_data)
-        db.session.execute(statement)
-        db.session.commit()
+    # combinations = set()
+    # price = ["15", "23", "30"]
+    # RestaurantPizzas = []
+    # for _ in range(50):
+    #     RestaurantPizzas = RestaurantPizzas
+    #     restaurants_id = randint(1, 50)
+    #     Pizza_id = randint(1, 50)
+    #     price = rc(price)
+
+    #     if (restaurants_id, Pizza_id, price) in combinations:
+    #         continue
+    #     combinations.add((restaurants_id, Pizza_id, price))
+    #     RestaurantPizzas_data = {"restaurants_id": restaurants_id, "Pizza_id": Pizza_id, "price": price}
+    #     statement = db.insert(RestaurantPizzas).values(RestaurantPizzas_data)
+        # db.session.execute(statement)
+        # db.session.commit()
     db.session.commit()
