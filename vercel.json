@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "Pizza_Restaurant", "use": "@vercel/python" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/Pizza_Restaurant" }
+    ]
+  }
